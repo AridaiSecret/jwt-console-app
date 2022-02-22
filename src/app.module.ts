@@ -9,8 +9,8 @@ import { JwtDecoderService } from './jwtdecoder.service';
   imports: [CommandModule],
   providers: [
     JwtGeneratorCommand,
-    JwtGeneratorService,
     JwtDecoderCommand,
+    JwtGeneratorService,
     JwtDecoderService,
   ],
 })
