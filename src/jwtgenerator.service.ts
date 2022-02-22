@@ -2,10 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { createHmac } from 'crypto';
 
 @Injectable()
-export class JwtService {
+export class JwtGeneratorService {
   CreateJWT(payload: string, secret: string): void {
     try {
-      console.log(payload);
       const encodedHeader = Buffer.from(
         JSON.stringify({
           alg: 'HS256',

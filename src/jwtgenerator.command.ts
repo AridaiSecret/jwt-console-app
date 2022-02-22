@@ -1,10 +1,10 @@
 import { Command, Positional, Option } from 'nestjs-command';
 import { Injectable } from '@nestjs/common';
-import { JwtService } from './jwt.service';
+import { JwtGeneratorService } from './jwtgenerator.service';
 
 @Injectable()
 export class JwtGeneratorCommand {
-  constructor(private readonly jwtService: JwtService) {}
+  constructor(private readonly jwtGenerator: JwtGeneratorService) {}
 
   @Command({
     command: 'generate-jwt:payload <payloadobject> secret <secret>',
@@ -14,7 +14,7 @@ export class JwtGeneratorCommand {
     @Positional({
       name: 'payloadobject',
       describe: 'Payload JSON object.',
-      type: 'custom',
+      type: 'string',
     })
     payload: string,
     @Option({
@@ -26,6 +26,6 @@ export class JwtGeneratorCommand {
     })
     secret: string,
   ) {
-    this.jwtService.CreateJWT(payload, secret);
+    this.jwtGenerator.CreateJWT(payload, secret);
   }
 }
