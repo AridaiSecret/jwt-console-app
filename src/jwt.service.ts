@@ -23,7 +23,7 @@ export class JwtService {
         .update(encodedHeader + '.' + encodedPayload)
         .digest('hex');
 
-      console.log('Token:' + encodedHeader + '.' + encodedPayload + '.' + hash);
+      console.log(encodedHeader + '.' + encodedPayload + '.' + hash);
     } catch (error) {
       console.log(error);
     }

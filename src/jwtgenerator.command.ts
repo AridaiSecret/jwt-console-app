@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from './jwt.service';
 
 @Injectable()
-export class UserCommand {
+export class JwtGeneratorCommand {
   constructor(private readonly jwtService: JwtService) {}
 
   @Command({
