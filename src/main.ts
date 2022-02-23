@@ -1,8 +1,8 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { CommandFactory } from 'nest-commander';
+import { JwtModule } from './jwt.module';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
-}
+const bootstrap = async () => {
+  await CommandFactory.run(JwtModule);
+};
+
 bootstrap();

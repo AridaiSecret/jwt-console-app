@@ -2,6 +2,9 @@
   "name": "jwt-console-app",
   "version": "0.0.1",
   "description": "",
+  "bin": {
+    "crun": "dist/main"
+  },
   "author": "",
   "private": true,
   "license": "UNLICENSED",
