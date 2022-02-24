@@ -3,7 +3,7 @@ import { createHmac } from 'crypto';
 
 @Injectable()
 export class JwtGeneratorService {
-  CreateJWT(payload: string, secret: string): void {
+  GenerateJWT(payload: string, secret: string): void {
     try {
       const encodedHeader = Buffer.from(
         JSON.stringify({

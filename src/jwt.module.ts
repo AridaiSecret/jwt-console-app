@@ -4,6 +4,8 @@ import { JwtCommand } from './jwt.command';
 import { JwtQuestion } from './jwt.question';
 import { JwtGeneratorQuestion } from './jwt.generator.question';
 import { JwtDecoderQuestion } from './jwt.decoder.question';
+import { JwtGeneratorService } from './jwtgenerator.service';
+import { JwtDecoderService } from './jwtdecoder.service';
 
 @Module({
   imports: [CommandModule],
@@ -12,6 +14,8 @@ import { JwtDecoderQuestion } from './jwt.decoder.question';
     JwtQuestion,
     JwtGeneratorQuestion,
     JwtDecoderQuestion,
+    JwtGeneratorService,
+    JwtDecoderService,
   ],
 })
 export class JwtModule {}

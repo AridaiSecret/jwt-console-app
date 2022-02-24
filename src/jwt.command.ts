@@ -5,7 +5,11 @@ import { JwtDecoderService } from './jwtdecoder.service';
 
 @Command({ name: 'jwt', options: { isDefault: true } })
 export class JwtCommand implements CommandRunner {
-  constructor(private readonly inquirerService: InquirerService) {}
+  constructor(
+    private readonly inquirerService: InquirerService,
+    private readonly jwtGenerator: JwtGeneratorService,
+    private readonly jwtDecoder: JwtDecoderService,
+  ) {}
   async run(
     _inputs: string[],
     options?: JwtOptions,
@@ -15,12 +19,10 @@ export class JwtCommand implements CommandRunner {
     options = await this.inquirerService.ask('jwt', options);
     if (options.mode === 'generatejwt') {
       generateJWT = await this.inquirerService.ask('jwtgenerator', generateJWT);
-      const jwtGenerator = new JwtGeneratorService();
-      jwtGenerator.CreateJWT(generateJWT?.payload, generateJWT?.secret);
+      this.jwtGenerator.GenerateJWT(generateJWT?.payload, generateJWT?.secret);
     } else if (options.mode === 'decodejwt') {
       decodeJWT = await this.inquirerService.ask('jwtdecoder', decodeJWT);
-      const jwtDecoder = new JwtDecoderService();
-      jwtDecoder.DecodeJWT(decodeJWT?.token, decodeJWT?.secret);
+      this.jwtDecoder.DecodeJWT(decodeJWT?.token, decodeJWT?.secret);
     }
   }
 }
