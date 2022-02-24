@@ -19,10 +19,17 @@ export class JwtCommand implements CommandRunner {
     options = await this.inquirerService.ask('jwt', options);
     if (options.mode === 'generatejwt') {
       generateJWT = await this.inquirerService.ask('jwtgenerator', generateJWT);
-      this.jwtGenerator.GenerateJWT(generateJWT?.payload, generateJWT?.secret);
+      console.log(
+        this.jwtGenerator.GenerateJWT(
+          generateJWT?.payload,
+          generateJWT?.secret,
+        ),
+      );
     } else if (options.mode === 'decodejwt') {
       decodeJWT = await this.inquirerService.ask('jwtdecoder', decodeJWT);
-      this.jwtDecoder.DecodeJWT(decodeJWT?.token, decodeJWT?.secret);
+      console.log(
+        this.jwtDecoder.DecodeJWT(decodeJWT?.token, decodeJWT?.secret),
+      );
     }
   }
 }
