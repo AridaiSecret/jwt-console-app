@@ -1,7 +1,7 @@
 import { Command, CommandRunner, InquirerService } from 'nest-commander';
 import { JwtOptions } from './jwt.interface';
-import { JwtGeneratorService } from './jwtgenerator.service';
-import { JwtDecoderService } from './jwtdecoder.service';
+import { JwtGeneratorService } from '../jwtgenerator.service';
+import { JwtDecoderService } from '../jwtdecoder.service';
 
 @Command({ name: 'jwt', options: { isDefault: true } })
 export class JwtCommand implements CommandRunner {

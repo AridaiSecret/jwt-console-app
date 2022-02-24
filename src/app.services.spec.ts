@@ -1,9 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CommandModule } from 'nestjs-command';
-import { JwtCommand } from './jwt.command';
-import { JwtDecoderQuestion } from './jwt.decoder.question';
-import { JwtGeneratorQuestion } from './jwt.generator.question';
-import { JwtQuestion } from './jwt.question';
 import { JwtDecoderService } from './jwtdecoder.service';
 import { JwtGeneratorService } from './jwtgenerator.service';
 
