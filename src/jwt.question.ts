@@ -1,4 +1,4 @@
-import { Question, QuestionSet, ValidateFor, WhenFor } from 'nest-commander';
+import { Question, QuestionSet } from 'nest-commander';
 
 @QuestionSet({ name: 'jwt' })
 export class JwtQuestion {
@@ -21,16 +21,6 @@ export class JwtQuestion {
     ],
   })
   selectMode(val: string) {
-    return val;
-  }
-
-  @Question({
-    type: 'confirm',
-    name: 'isSecretNeeded',
-    message: 'Will you use a Secret?',
-    default: false,
-  })
-  parseisSecretNeeded(val: boolean) {
     return val;
   }
 }
